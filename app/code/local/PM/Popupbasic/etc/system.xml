@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<config>
+	<!-- PM Tabs -->
+	  <tabs>
+		<pm translate="label" module="popupbasic">
+            <label>PM Modules</label>
+            <sort_order>900</sort_order>
+        </pm>
+	  </tabs>
+	  <!-- PM Sections -->
+	  <sections>
+	  	<!-- Popupbasic section -->
+		<popupbasic  translate="label" module="popupbasic">                    
+		<label>Popupbasic</label>
+		<tab>pm</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>1</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>    
+		        <!-- Popup basic configuration gruops -->
+					<groups>
+				      <basic_configuration translate="label"> 
+					  <label>Popup Configuration</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>1</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+				       	<!-- popupbasic/basic_configuration/enabled -->
+                          <enabled translate="label">
+                            <label>Enable</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Enable/disable Module</comment>
+                          </enabled>
+                          <!-- popupbasic/basic_configuration/jquery -->
+                          <jquery translate="label">
+                            <label>Include Jquery</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Set to No to avoide jquery conflict in case jquery is included before</comment>
+                          </jquery>
+                          <!-- popupbasic/basic_configuration/cookie_time -->
+                          <cookie_time translate="label">
+                            <label>Cookie Duration</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Popup will not be shown to a customer with in the specified number of days</comment>
+                          </cookie_time>
+                          <!-- popupbasic/basic_configuration/repeat -->
+                           <repeat translate="label">
+                            <label>Repeat Number</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Number of times, to show popup to a visitor</comment>
+                          </repeat>
+                          <!-- popupbasic/basic_configuration/static_block -->
+                          <static_block translate="label">
+                            <label>Select Static Block</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>popupbasic/config_source_static</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Select Static block you want to be displayed</comment>
+                          </static_block>
+                          <!-- popupbasic/basic_configuration/customers -->
+                          <customers translate="label">
+                            <label>Customer Group</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>popupbasic/config_source_groups</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Targeted Customer Groups</comment>
+                          </customers>
+					   </fields>
+					   </basic_configuration>
+					</groups>
+		</popupbasic>
+	  </sections>
+</config>

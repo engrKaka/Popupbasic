@@ -1,0 +1,21 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">
+  <default>
+      <reference name="head">
+        <action method="addCss" ifconfig="popupbasic/basic_configuration/enabled"><stylesheet>popupbasic/css/jquery.fancybox.css</stylesheet></action>
+        <action method="addItem" ifconfig="popupbasic/basic_configuration/jquery"><type>skin_js</type><name>popupbasic/js/jquery-1.10.2.min.js</name></action>
+        <action method="addItem" ifconfig="popupbasic/basic_configuration/enabled"><type>skin_js</type><name>popupbasic/js/jquery.fancybox.pack.js</name></action>
+        <action method="addItem" ifconfig="popupbasic/basic_configuration/enabled"><type>skin_js</type><name>popupbasic/js/jquery.fancybox.js</name></action>
+        <action method="addItem" ifconfig="popupbasic/basic_configuration/enabled"><type>skin_js</type><name>popupbasic/js/cookie-monster.js</name></action>
+      </reference>
+      <reference name="after_body_start">
+        <!-- <block type="popupbasic/popupbasic" name="popupbasic">
+          <action method="setTemplate"><template>popupbasic/popupbasic.pthml</template>
+          </action>
+        </block> -->
+         <block type="popupbasic/popupbasic" name="popupbasic" template="popupbasic/popupbasic.phtml"/>  
+      </reference> 
+  </default>
+
+</layout>   
+	

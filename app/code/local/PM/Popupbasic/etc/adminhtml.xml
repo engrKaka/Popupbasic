@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<popupbasic translate="title" module="popupbasic">
+											<title>Popupbasic Section</title>
+											<sort_order>1</sort_order>
+										</popupbasic>
+									</children>
+								</config>
+							</children>
+						</system>
+						<pashman>
+							<title>PM Extensions</title>
+							<sort_order>66</sort_order>
+							<children>
+								<popupbasic>
+									<title>Popup Basic</title>
+									<sort_order>1</sort_order>
+									<children>
+										<setting>
+											<title>Popupbasic Configuration</title>
+											<sort_order>1</sort_order>
+										</setting>
+									</children>
+								</popupbasic>
+							</children>
+						</pashman>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<menu>
+			<pashman>
+				<title>PM Extensions</title>
+				<sort_order>66</sort_order>
+				<children>
+					<popupbasic>
+						<title>Popup Basic</title>
+						<sort_order>1</sort_order>
+						<children>
+							<setting>
+								<title>Popupbasic Configuration</title>
+								<sort_order>1</sort_order>
+								<action>adminhtml/system_config/edit/section/popupbasic</action>
+							</setting>
+						</children>
+					</popupbasic>
+				</children>
+			</pashman>
+		</menu>
+	</config>

@@ -1,0 +1,79 @@
+<?php
+/**
+ * FMA_Popupscreen extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       FMA
+ * @package        FMA_Popupscreen
+ * @copyright      Copyright (c) 2014
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+/**
+ * Popup tab on category edit form
+ *
+ * @category    FMA
+ * @package     FMA_Popupscreen
+ * @author      Ultimate Module Creator
+ */
+?>
+<?php if(Mage::getStoreConfig('popupbasic/basic_configuration/enabled')):?>
+	<?php $block=Mage::getStoreConfig('popupbasic/basic_configuration/static_block');?>
+	<?php $groups= Mage::getStoreConfig('popupbasic/basic_configuration/customers'); ?>
+	
+	<?php $group=	explode(',', $groups);
+ 	$customergroup =  Mage::getSingleton('customer/session')->getCustomerGroupId();
+ 	$repeat= Mage::getStoreConfig('popupbasic/basic_configuration/repeat');
+ 	$cookie_time= Mage::getStoreConfig('popupbasic/basic_configuration/cookie_time');
+    if (in_array($customergroup, $group)) 
+		{} else{ $block = '';}
+    ?>
+
+    <?php if (!empty($block)): ?>
+	<script type="text/javascript">
+	var repeat = "<?php echo $repeat ?>";
+	var display= false;
+	repeat= parseFloat(repeat);
+		jQuery.noConflict();
+		jQuery(document).ready(function(){
+			var cookie_name= monster.get('pm_popup');
+			 if (!cookie_name) 
+			 	{
+			 		display=true;
+					var name = 'pm_popup';
+					if (<?php echo $cookie_time ?>) {
+						var days= <?php echo $cookie_time ?>;
+					}else {
+						var days=0;
+					};
+					var value= 1;
+					monster.set(name, value, days);
+			 	}else if(repeat>cookie_name)
+				{
+					display=true;
+					var name = 'pm_popup';
+					var value= parseFloat(cookie_name)+1;
+					monster.set(name, value);
+				};
+				
+				if (display) {
+			jQuery.fancybox.open('#popup',{
+				padding:5,
+				fitToView:true,
+			})
+			};
+		});
+	</script>
+
+	<div style="display:none">
+		<div id="popup" style='padding:10px;'>
+		<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($block)->toHtml(); ?>	
+		</div>
+	</div>
+<?php endif; ?>
+<?php endif; ?>
